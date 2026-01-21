@@ -29,7 +29,9 @@ const FinalCTA = () => {
           </p>
 
           <motion.a
-            href="mailto:contato@riquissimos.com.br"
+            href="https://wa.me/5561991209112?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20a%20proposta%20da%20Imers%C3%A3o%20Dr.%20Ritchie."
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -37,6 +39,7 @@ const FinalCTA = () => {
           >
             Entrar em Contato
           </motion.a>
+
         </motion.div>
       </div>
     </section>

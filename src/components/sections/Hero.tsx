@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import logo from "../../assets/images/logo.png";
 
 const Hero = () => {
   const scrollToProposal = () => {
@@ -8,34 +9,42 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with subtle vertical lines */}
+      {/* Background */}
       <div className="absolute inset-0 vertical-lines opacity-30" />
-      
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Brand */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="mb-14 flex flex-col items-center"
         >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase font-medium mb-2">
+          <motion.img
+            src={logo}
+            alt="Logo Riquíssimos"
+            className="w-20 mb-6"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          />
+
+          <p className="text-primary text-sm tracking-[0.35em] uppercase font-medium mb-2">
             Riquíssimos
           </p>
-          <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">
+
+          <p className="text-muted-foreground text-xs tracking-[0.25em] uppercase">
             — Maison Experience —
           </p>
         </motion.div>
 
-        {/* Main headline */}
+        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="heading-display text-foreground mb-8"
+          className="font-serif text-4xl md:text-6xl tracking-[-0.02em] text-foreground mb-12"
         >
           Imersão Dr. Ritchie
         </motion.h1>
@@ -45,26 +54,23 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-12"
+          className="mb-16 space-y-3"
         >
-          <p className="text-xl md:text-2xl text-foreground/80 font-serif italic mb-2">
+          <p className="text-lg md:text-2xl text-foreground/70 font-serif italic">
             Existem eventos que apenas informam.
           </p>
-          <p className="text-xl md:text-2xl text-primary font-serif italic">
+          <p className="text-lg md:text-2xl text-primary font-serif italic">
             Outros transformam.
           </p>
         </motion.div>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <button
-            onClick={scrollToProposal}
-            className="btn-outline group"
-          >
+          <button onClick={scrollToProposal} className="btn-outline">
             Ver Proposta
           </button>
         </motion.div>

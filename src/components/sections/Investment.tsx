@@ -2,6 +2,26 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Check } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import coquetel from "@/assets/images/investiment/coquetel.png";
+import estrutura from "@/assets/images/investiment/estrutura.png";
+import kit from "@/assets/images/investiment/kit.png";
+import limosine from "@/assets/images/investiment/limosine.jpeg";
+import coffe from "../../../public/gastronomia/coffe.png";
+
+
+const carouselItems = [
+  { title: "Coquetel de Boas-Vindas", image: coquetel },
+  { title: "Estrutura Completa", image: estrutura },
+  { title: "Kits Personalizados", image: kit },
+  { title: "Locomoção", image: limosine },
+  { title: "Café Premium", image: coffe },
+];
 
 const includedItems = [
   "Direção Criativa",
@@ -44,7 +64,7 @@ const Investment = () => {
               Valor Real de Mercado
             </p>
             <p className="text-4xl md:text-5xl font-serif text-foreground/60 line-through decoration-primary/50">
-              R$ 197.800
+              R$ 207.800
             </p>
             <p className="text-small mt-4">
               Execução completa do projeto
@@ -64,16 +84,16 @@ const Investment = () => {
                 Condição Especial
               </span>
             </div>
-            
+
             <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
               Investimento Proposto
             </p>
             <p className="text-4xl md:text-5xl font-serif text-primary">
-              R$ 98.900
+              R$ 107.000
             </p>
-            <p className="text-small mt-4 text-primary/80">
+            {/* <p className="text-small mt-4 text-primary/80">
               50% absorvidos pela Riquíssimos
-            </p>
+            </p> */}
           </motion.div>
         </div>
 
@@ -88,9 +108,7 @@ const Investment = () => {
             Condição Especial de Parceria
           </h3>
           <p className="text-body">
-            Com base na nossa visão de parceria estratégica, construção de marca e 
-            continuidade de projetos futuros, a Riquíssimos opta por absorver 50% do 
-            valor total deste projeto, sem repasse ao cliente.
+            Orientada por uma visão de parceria estratégica e pela construção de um legado de marca, a Riquíssimos direciona investimentos próprios para este projeto, assegurando uma execução refinada, consistente e com potencial de continuidade ao longo do tempo.
           </p>
         </motion.div>
 
@@ -98,23 +116,47 @@ const Investment = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16"
         >
-          <p className="text-muted-foreground text-sm uppercase tracking-wider mb-6">
-            O que está incluso
+          <p className="text-muted-foreground text-sm uppercase tracking-wider mb-8">
+            Experiência entregue
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {includedItems.map((item, index) => (
-              <div
-                key={item}
-                className="flex items-center gap-2 text-sm text-foreground/80"
-              >
-                <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>{item}</span>
-              </div>
+
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1.2}
+            centeredSlides
+            loop
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: { slidesPerView: 2.5 },
+              1024: { slidesPerView: 3.5 },
+            }}
+            className="pb-12"
+          >
+            {carouselItems.map((item) => (
+              <SwiperSlide key={item.title}>
+                <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-background">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="font-serif text-lg text-foreground">
+                      {item.title}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </motion.div>
       </div>
     </section>

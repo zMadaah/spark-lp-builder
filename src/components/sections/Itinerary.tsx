@@ -75,9 +75,32 @@ const Itinerary = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-body mb-16 max-w-2xl"
         >
-          Uma experiência gastronômica integral ao longo de todo o evento, 
+          Uma experiência gastronômica integral ao longo de todo o evento,
           com operação estendida até as primeiras horas da manhã.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
+        >
+          <img
+            src="/gastronomia/coffe.png"
+            alt="Experiência gastronômica do evento"
+            className="rounded-xl object-cover w-full h-56 hover:scale-[1.02] transition-transform duration-300"
+          />
+          <img
+            src="/gastronomia/lunch.png"
+            alt="Serviço gastronômico premium"
+            className="rounded-xl object-cover w-full h-56 hover:scale-[1.02] transition-transform duration-300"
+          />
+          <img
+            src="/gastronomia/coquetel.png"
+            alt="Detalhes da experiência gastronômica"
+            className="rounded-xl object-cover w-full h-56 hover:scale-[1.02] transition-transform duration-300"
+          />
+        </motion.div>
 
         {/* Days */}
         <div className="space-y-12">
@@ -94,7 +117,7 @@ const Itinerary = () => {
                 <div className="w-12 h-12 rounded-full border border-primary flex items-center justify-center flex-shrink-0">
                   <span className="text-primary font-serif text-xl">{day.number}</span>
                 </div>
-                
+
                 {/* Day info */}
                 <div>
                   <h3 className="heading-card text-foreground">{day.day}</h3>
