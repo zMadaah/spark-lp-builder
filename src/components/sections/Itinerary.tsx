@@ -1,148 +1,235 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
 
 const days = [
   {
-    number: 1,
+    number: "01",
     day: "Sexta-feira",
+    date: "Dia 1",
     location: "Auditório Alphaville",
+    description: "Abertura oficial e imersão teórica profunda.",
     schedule: [
-      { time: "08h - 09h", activity: "Café da Manhã Premium + Conteúdo Visual" },
-      { time: "09h - 12h", activity: "Imersão Teórica - Abertura Oficial" },
-      { time: "12h - 14h", activity: "Almoço Elegante | Mediterrâneo Leve" },
-      { time: "14h - 17h", activity: "Aula Teórica - Continuação" },
-      { time: "17h - 18h", activity: "Coffee Break Gourmet" },
-      { time: "21h - 23h", activity: "Coquetel na Residência do Dr. Ritchie" },
+      { 
+        time: "08h00 às 09h00", 
+        activity: "Café da Manhã + Conteúdo Visual",
+        details: ["Café espresso, cappuccino e especial", "Chás premium selecionados", "Leite integral e vegetal", "Sucos naturais: laranja e frutas vermelhas", "Croissants e pães artesanais", "Queijos, manteiga francesa e geleias", "Frutas frescas, iogurte e granola premium"] 
+      },
+      { 
+        time: "09h00 às 12h00", 
+        activity: "Imersão Teórica – Abertura oficial",
+        details: ["Conteúdo teórico exclusivo", "Registro fotográfico e audiovisual", "Serviço contínuo de água e café"] 
+      },
+      { 
+        time: "12h00 às 14h00", 
+        activity: "Almoço Elegante | Mediterrâneo Leve",
+        details: ["Peixe grelhado com ervas finas", "Arroz de amêndoas", "Legumes assados", "Mix de folhas com molho cítrico", "Águas e sucos naturais aromatizados"] 
+      },
+      { 
+        time: "14h00 às 17h00", 
+        activity: "Aula - Conteúdo Teórico",
+        details: [ "Serviço contínuo de água, café e snacks "] 
+      },
+      { 
+        time: "17h00 às 18h00", 
+        activity: "Coffee Break - Café da Tarde",
+        details: ["Café e chás premium", "Mini sanduíches frios e pães de queijo", "Bolo integral ou caseiros", "Frutas frescas"] 
+      },
+      { 
+        time: "21h00 às 23h00", 
+        activity: "Coquetel na Residência do Dr. Ritchie",
+        details: ["Tartelete de brie com mel trufado", "Canapé de salmão curado e dill", "Crostini de ricota e limão siciliano", "Roast beef com mostarda suave", "Risoto de parmesão (Empratado)", "Escondidinho de mandioquinha", "Serviço completo de concierge e garçons"] 
+      }
     ],
   },
   {
-    number: 2,
+    number: "02",
     day: "Sábado",
+    date: "Dia 2",
     location: "Clínica do Dr. Ritchie",
+    description: "Foco total em prática clínica e networking avançado.",
     schedule: [
-      { time: "08h - 09h", activity: "Café da Manhã Premium" },
-      { time: "09h - 12h", activity: "Aula Prática Intensiva" },
-      { time: "12h - 14h", activity: "Almoço Funcional e Elegante" },
-      { time: "14h - 17h", activity: "Aula Prática + Coffee Break" },
-      { time: "17h - 18h", activity: "Coffee Break da Tarde" },
-      { time: "20h - 04h", activity: "Coquetel Premium Contínuo" },
+      { 
+        time: "08h00 às 09h00", 
+        activity: "Café da Manhã Premium",
+        details: ["Café espresso, cappuccino e especial", "Chás premium selecionados", "Leite integral e vegetal", "Sucos naturais: laranja e frutas vermelhas", "Croissants e pães artesanais", "Queijos, manteiga francesa e geleias", "Frutas frescas, iogurte e granola premium"] 
+      },
+      { 
+        time: "09h00 às 12h00", 
+        activity: "Aula Prática Intensiva",
+        details: ["Demonstração real com Dr. Ritchie", "Registro audiovisual do procedimento", "Snacks leves e café contínuos", "Equipe de suporte completa"] 
+      },
+      { 
+        time: "12h00 às 14h00", 
+        activity: "Almoço Funcional e Elegante",
+        details: ["Frango ou peixe grelhado", "Purê de mandioquinha ou arroz integral", "Legumes no vapor", "Salada verde premium"] 
+      },
+      { 
+        time: "17h00 às 18h00", 
+        activity: "Coffee Break da Tarde",
+        details: ["Mini pães de queijo assados na hora", "Cookies integrais e mini bolos", "Barrinhas funcionais e nuts", "Frutas frescas laminadas"] 
+      },
+      { 
+        time: "20h01 às 04h00", 
+        activity: "Jantar - Coquetel Premium Contínuo",
+        details: ["Mini pratos quentes", "Pães artesanais e queijos selecionados", "Energéticos e café para suporte noturno", "Serviço contínuo para alunos e pacientes"] 
+      }
     ],
   },
   {
-    number: 3,
+    number: "03",
     day: "Domingo",
+    date: "Dia 3",
     location: "Clínica do Dr. Ritchie",
+    description: "Encerramento, prática final e entrega de certificados.",
     schedule: [
-      { time: "08h - 09h", activity: "Café da Manhã Premium" },
-      { time: "09h - 12h", activity: "Aula Prática Final" },
-      { time: "12h - 14h", activity: "Almoço de Encerramento" },
-      { time: "14h - 17h", activity: "Aula Prática + Coffee Break" },
-      { time: "17h - 18h", activity: "Encerramento da Imersão" },
+      { 
+        time: "08h00 às 09h00", 
+        activity: "Café da Manhã Premium",
+        details: ["Café espresso, cappuccino e especial", "Chás premium selecionados", "Leite integral e vegetal", "Sucos naturais: laranja e frutas vermelhas", "Croissants e pães artesanais", "Queijos, manteiga francesa e geleias", "Frutas frescas, iogurte e granola premium"] 
+      },
+      { 
+        time: "09h00 às 12h00", 
+        activity: "Aula Prática Final",
+        details: ["Conclusão dos casos clínicos", "Suporte audiovisual completo"] 
+      },
+      { 
+        time: "12h00 às 14h00", 
+        activity: "Almoço de Encerramento",
+        details: ["Frango ou peixe grelhado", "Purê de mandioquinha ou arroz integral", "Legumes no vapor", "Salada verde premium"] 
+      },
+      { 
+        time: "17h00 às 18h00", 
+        activity: "Encerramento da Imersão",
+        details: ["Cerimônia de entrega de certificados", "Último Coffee Break gourmet", "Momento de fotos oficiais", "Encerramento oficial"] 
+      }
     ],
   },
 ];
 
 const Itinerary = () => {
+  const [selectedDay, setSelectedDay] = useState(0);
+  const [openSlot, setOpenSlot] = useState<number | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
+  const toggleSlot = (i: number) => {
+    setOpenSlot(openSlot === i ? null : i);
+  };
+
   return (
-    <section id="itinerario" className="section-padding bg-secondary/30">
-      <div className="container-narrow" ref={ref}>
-        {/* Section header */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-primary text-sm tracking-[0.2em] uppercase mb-6"
-        >
-          Itinerário
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="heading-section text-foreground mb-6"
-        >
-          3 Dias de Imersão Completa
-        </motion.h2>
-
-        <motion.p
+    <section id="itinerario" className="py-24 bg-[#0a0a0a]">
+      <div className="max-w-5xl mx-auto px-6" ref={ref}>
+        
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-body mb-16 max-w-2xl"
+          className="text-center mb-16"
         >
-          Uma experiência gastronômica integral ao longo de todo o evento,
-          com operação estendida até as primeiras horas da manhã.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
-        >
-          <img
-            src="/gastronomia/coffe.png"
-            alt="Experiência gastronômica do evento"
-            className="rounded-xl object-cover w-full h-56 hover:scale-[1.02] transition-transform duration-300"
-          />
-          <img
-            src="/gastronomia/lunch.png"
-            alt="Serviço gastronômico premium"
-            className="rounded-xl object-cover w-full h-56 hover:scale-[1.02] transition-transform duration-300"
-          />
-          <img
-            src="/gastronomia/coquetel.png"
-            alt="Detalhes da experiência gastronômica"
-            className="rounded-xl object-cover w-full h-56 hover:scale-[1.02] transition-transform duration-300"
-          />
+          <p className="font-sans text-[10px] tracking-ultra-widest uppercase text-white/40 mb-3">
+            Schedule — Experience
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl text-white uppercase tracking-tight">
+            Itinerário
+          </h2>
         </motion.div>
 
-        {/* Days */}
-        <div className="space-y-12">
-          {days.map((day, dayIndex) => (
-            <motion.div
-              key={day.number}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + dayIndex * 0.15 }}
-              className="card-luxury"
+        {/* Calendar Navigation */}
+        <div className="flex justify-center gap-4 md:gap-8 mb-16">
+          {days.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setSelectedDay(index);
+                setOpenSlot(null);
+              }}
+              className="group relative flex flex-col items-center min-w-[80px] md:min-w-[120px]"
             >
-              <div className="flex items-start gap-6 mb-6">
-                {/* Day number */}
-                <div className="w-12 h-12 rounded-full border border-primary flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-serif text-xl">{day.number}</span>
-                </div>
+              <span className={`font-sans text-[10px] tracking-widest uppercase mb-2 transition-colors duration-300 ${selectedDay === index ? 'text-white' : 'text-white/30'}`}>
+                {item.date}
+              </span>
+              <div className={`w-12 h-16 md:w-16 md:h-20 flex items-center justify-center border transition-all duration-500 rounded-sm ${selectedDay === index ? 'bg-white border-white' : 'bg-transparent border-white/10 group-hover:border-white/40'}`}>
+                <span className={`font-serif text-2xl md:text-3xl ${selectedDay === index ? 'text-black' : 'text-white'}`}>
+                  {item.number}
+                </span>
+              </div>
+              {selectedDay === index && (
+                <motion.div 
+                  layoutId="underline"
+                  className="absolute -bottom-4 w-1 h-1 bg-white rounded-full"
+                />
+              )}
+            </button>
+          ))}
+        </div>
 
-                {/* Day info */}
+        {/* Content Area */}
+        <div className="bg-white/[0.02] border border-white/5 p-6 md:p-12 rounded-sm relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedDay}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 border-b border-white/10 pb-8">
                 <div>
-                  <h3 className="heading-card text-foreground">{day.day}</h3>
-                  <p className="text-primary text-sm">{day.location}</p>
+                  <h3 className="font-serif text-3xl text-white mb-2">{days[selectedDay].day}</h3>
+                  <p className="font-sans text-[10px] tracking-widest uppercase text-white/40 italic">
+                    {days[selectedDay].location}
+                  </p>
                 </div>
+                <p className="font-sans text-sm text-white/60 max-w-xs md:text-right font-light leading-relaxed">
+                  {days[selectedDay].description}
+                </p>
               </div>
 
-              {/* Schedule */}
-              <div className="space-y-3 pl-0 md:pl-18">
-                {day.schedule.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 py-2 border-b border-border/50 last:border-0"
-                  >
-                    <span className="text-primary text-sm font-medium min-w-[100px]">
-                      {item.time}
-                    </span>
-                    <span className="text-muted-foreground text-sm">
-                      {item.activity}
-                    </span>
+              {/* Schedule List with Accordion */}
+              <div className="space-y-4">
+                {days[selectedDay].schedule.map((slot, i) => (
+                  <div key={i} className="border-b border-white/5 last:border-0">
+                    <button 
+                      onClick={() => toggleSlot(i)}
+                      className="w-full flex items-start md:items-center gap-6 group py-4 text-left"
+                    >
+                      <span className="font-sans text-[11px] tracking-widest text-white/40 min-w-[100px] pt-1 md:pt-0 group-hover:text-white transition-colors">
+                        {slot.time}
+                      </span>
+                      <div className="h-[1px] flex-grow bg-white/5 hidden md:block" />
+                      <span className="font-sans text-sm text-white/80 font-light group-hover:text-white transition-colors uppercase tracking-wide">
+                        {slot.activity}
+                      </span>
+                      <span className="text-white/20 text-xs ml-auto group-hover:text-white transition-colors">
+                        {openSlot === i ? '—' : '+'}
+                      </span>
+                    </button>
+
+                    <AnimatePresence>
+                      {openSlot === i && slot.details && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-6 pl-[124px] grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                            {slot.details.map((detail, idx) => (
+                              <div key={idx} className="flex items-center gap-2">
+                                <div className="w-1 h-[1px] bg-white/30" />
+                                <p className="text-[12px] text-white/50 font-light">{detail}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ))}
               </div>
             </motion.div>
-          ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>

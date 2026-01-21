@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -13,6 +18,22 @@ export default {
       },
     },
     extend: {
+      // PADRONIZAÇÃO DE ESPAÇAMENTO (ESTILO EDITORIAL/PDF)
+      letterSpacing: {
+        'tightest': '-0.05em',
+        'wider': '0.1em',
+        'widest-luxury': '0.3em',    // Para subtítulos e menus
+        'ultra-widest': '0.5em',    // Para a marca principal (RIQUÍSSIMOS)
+      },
+      
+      // PADRONIZAÇÃO DE FONTES
+      fontFamily: {
+        // Serifada para Títulos e Elegância (Playfair como primária)
+        serif: ["Playfair Display", "Cormorant Garamond", "serif"],
+        // Sans para leitura técnica e labels (Montserrat traz mais luxo que Inter)
+        sans: ["Montserrat", "Inter", "system-ui", "sans-serif"],
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,16 +68,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
@@ -68,15 +79,13 @@ export default {
           light: "hsl(var(--charcoal-light))",
         },
       },
-      fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
-      },
+      
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

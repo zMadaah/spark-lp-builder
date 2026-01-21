@@ -79,11 +79,11 @@ const Investment = () => {
             className="card-luxury text-center border-primary/50 relative overflow-hidden"
           >
             {/* Highlight badge */}
-            <div className="absolute top-4 right-4">
+            {/* <div className="absolute top-4 right-4">
               <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
                 Condição Especial
               </span>
-            </div>
+            </div> */}
 
             <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
               Investimento Proposto
@@ -113,7 +113,7 @@ const Investment = () => {
         </motion.div>
 
         {/* What's included grid */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -157,7 +157,7 @@ const Investment = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ const Proposal = () => {
   return (
     <section id="proposta" className="section-padding bg-secondary/30">
       <div className="container-narrow" ref={ref}>
-        {/* Section label */}
+        {/* Section label
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -17,7 +17,7 @@ const Proposal = () => {
           className="text-primary text-sm tracking-[0.2em] uppercase mb-6"
         >
           Proposta
-        </motion.p>
+        </motion.p> */}
 
         {/* Main heading */}
         <motion.h2
@@ -26,7 +26,7 @@ const Proposal = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="heading-section text-foreground mb-8 max-w-3xl"
         >
-          Esta proposta foi concebida para ir além de um evento tradicional.
+          Existem eventos que apenas informa. <br/>Outros transformam.
         </motion.h2>
 
         {/* Description */}
@@ -37,9 +37,10 @@ const Proposal = () => {
           className="max-w-3xl space-y-6"
         >
           <p className="text-body">
-            A Imersão Dr. Ritchie nasce com o propósito de ser uma experiência integral, 
-            na qual conteúdo científico, prática clínica, conforto, estética e operação 
-            se entrelaçam de forma fluida, organizada e sofisticada.
+            Essa proposta foi concebida para ir além de um evento tradicional. 
+            A Imersão Dr. Ritchie nasce como proposito de ser uma experiência integral,
+            na qual cada conteudo cientifico, prática clínica, conforto, estética e operação
+            se entrelaçam de forma fluida, organizada e sofisticada
           </p>
           <p className="text-body">
             A Riquíssimos assume a execução completa do projeto, permitindo que o cliente 
@@ -48,19 +49,6 @@ const Proposal = () => {
             leveza e precisão.
           </p>
         </motion.div>
-
-        {/* Quote */}
-        <motion.blockquote
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 pl-6 border-l-2 border-primary/50"
-        >
-          <p className="text-lg md:text-xl text-foreground/90 font-serif italic">
-            "Seguimos com o mesmo espírito nesta Imersão: entregar além do esperado, 
-            com responsabilidade, organização e cuidado absoluto com cada detalhe."
-          </p>
-        </motion.blockquote>
       </div>
     </section>
   );

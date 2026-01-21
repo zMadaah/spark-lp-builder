@@ -20,7 +20,7 @@ const FinalCTA = () => {
           </p>
           
           <h2 className="heading-section text-foreground mb-6">
-            Vamos Transformar Este Projeto em Realidade
+            Vamos transformar este projeto em realidade
           </h2>
           
           <p className="text-body mb-10">
