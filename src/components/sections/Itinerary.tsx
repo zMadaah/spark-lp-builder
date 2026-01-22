@@ -119,7 +119,7 @@ const Itinerary = () => {
 
   return (
     /* 1. Alterado bg-[#0a0a0a] para bg-white (ou um cinza bem claro) */
-    <section id="itinerario" className="py-24 bg-white">
+    <section id="itinerario" className="py-24 bg-[#F5F3EF]">
       <div className="max-w-5xl mx-auto px-6" ref={ref}>
 
         {/* Header */}
@@ -129,11 +129,11 @@ const Itinerary = () => {
           className="text-center mb-16"
         >
           {/* 2. Alterado text-white para text-black/80 */}
-          <h2 className="font-sans text-4xl md:text-5xl text-black font-bold uppercase tracking-[0.25em] leading-none mb-4">
+          <h2 className="font-sans text-4xl md:text-5xl text-[#1C1C1C] font-bold uppercase tracking-[0.25em] leading-none mb-4">
             Itinerário
           </h2>
           {/* Ajustado o divisor para ser visível no claro */}
-          <div className="w-12 h-[2px] bg-black/20 mx-auto" />
+          <div className="w-12 h-[2px] bg-[#d9ad77] mx-auto" />
         </motion.div>
 
         {/* Calendar Navigation */}
@@ -152,8 +152,8 @@ const Itinerary = () => {
                 {item.date}
               </span>
               {/* 4. Inversão do box de seleção: fundo preto quando selecionado, bordas escuras */}
-              <div className={`w-12 h-16 md:w-16 md:h-20 flex items-center justify-center border transition-all duration-500 rounded-sm ${selectedDay === index ? 'bg-black border-black' : 'bg-transparent border-black/10 group-hover:border-black/40'}`}>
-                <span className={`font-serif text-2xl md:text-3xl ${selectedDay === index ? 'text-white' : 'text-black'}`}>
+              <div className={`w-12 h-16 md:w-16 md:h-20 flex items-center justify-center border transition-all duration-500 rounded-sm ${selectedDay === index ? 'bg-[#1C1C1C] border-[#1C1C1C]' : 'bg-transparent border-[#1C1C1C]/10 group-hover:border-[#1C1C1C]/40'}`}>
+                <span className={`font-serif text-2xl md:text-3xl ${selectedDay === index ? 'text-[#F5F3EF]' : 'text-[#1C1C1C]'}`}>
                   {item.number}
                 </span>
               </div>

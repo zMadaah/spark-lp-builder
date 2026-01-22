@@ -7,14 +7,18 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
       
       {/* 1. FUNDO DINÂMICO (SILK EFFECT) */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-  <Silk
-    speed={0.4}
-    scale={1.2}
-    color="#2a272e" // Um tom levemente mais escuro para o fundo
-  />
-</div>
-      
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <div style={{ width: '100%', height: '100%', minWidth: '1080px', minHeight: '1080px' }}>
+          <Silk
+            speed={5}
+            scale={1}
+            color="#7B7481"
+            noiseIntensity={1.5}
+            rotation={0}
+          />
+        </div>
+      </div>
+
       {/* 2. OVERLAY DE GRADIENTE (Para leitura perfeita do texto) */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-[1]" />
 
@@ -61,13 +65,13 @@ const Hero = () => {
           className="text-center md:text-left"
         >
           
-          <h1 className="font-garet text-white text-4xl md:text-6xl lg:text-7xl tracking-tighter font-bold uppercase leading-[0.9]">
+          <h1 className="font-garet text-[#F5F3EF] text-4xl md:text-6xl lg:text-7xl tracking-tighter font-bold uppercase leading-[0.9]">
             Imersão <br />
-            <span className="text-white/80">Dr. Ritchie</span>
+            <span className="text-[#F5F3EF]">Dr. Ritchie</span>
           </h1>
           
           <div className="mt-8 flex justify-center md:justify-start">
-            <div className="w-16 h-px bg-primary/40" />
+            <div className="w-16 h-px bg-[#d9ad77]" />
           </div>
         </motion.div>
 

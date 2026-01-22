@@ -92,15 +92,15 @@ const Included = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center md:text-left"
+          className="text-center mb-16"
         >
-          
-          <h2 className="text-white text-4xl font-light tracking-tight uppercase">
+          <h2 className="font-garet text-4xl md:text-5xl text-[#F5F3EF] font-bold uppercase tracking-[0.25em] leading-none mb-4">
             Produção Completa
           </h2>
+          <div className="w-12 h-[2px] bg-[#d9ad77] mx-auto" />
         </motion.div>
 
-        {/* Services Grid com Boxes */}
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
@@ -108,25 +108,27 @@ const Included = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              /* Estilização do Box (Igualando ao conceito luxury anterior) */
-              className="bg-white/[0.03] border border-white/10 p-8 rounded-sm 
-                         hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500
+              /* 1. Card com fundo claro (#F5F3EF) e borda sutil */
+              className="bg-[#F5F3EF] border border-white/10 p-8 rounded-sm 
+                         hover:shadow-2xl hover:shadow-white/5 transition-all duration-500
                          group flex flex-col h-full"
             >
-              {/* Título do Box */}
-              <h3 className="text-white text-sm tracking-[0.2em] font-semibold uppercase mb-6 
-                             border-b border-white/5 pb-4 group-hover:text-white transition-colors">
+              {/* 2. Título do Card em preto (#1C1C1C) */}
+              <h3 className="text-[#1C1C1C] text-sm tracking-[0.2em] font-bold uppercase mb-6 
+                             border-b border-[#1C1C1C]/10 pb-4 transition-colors">
                 {service.title}
               </h3>
 
-              {/* Lista de Itens dentro do Box */}
+              {/* Lista de Itens */}
               <ul className="space-y-4 flex-grow">
                 {service.items.map((item, i) => (
                   <li 
                     key={i} 
-                    className="text-white/50 text-[13px] font-light leading-relaxed flex items-start gap-3"
+                    /* 3. Texto dos itens em preto (#1C1C1C) com opacidade suave */
+                    className="text-[#1C1C1C]/80 text-[13px] font-medium leading-relaxed flex items-start gap-3"
                   >
-                    <span className="w-1.5 h-[1px] bg-white/40 mt-[9px] shrink-0" />
+                    {/* 4. Marcador ajustado para preto */}
+                    <span className="w-1.5 h-[1px] bg-[#1C1C1C]/30 mt-[9px] shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
