@@ -6,7 +6,7 @@ const days = [
   {
     number: "01",
     day: "Sexta-feira",
-    date: "Dia 1",
+    date: "Dia ",
     location: "Auditório Alphaville",
     description: "Abertura oficial e imersão teórica profunda.",
     schedule: [
@@ -45,7 +45,7 @@ const days = [
   {
     number: "02",
     day: "Sábado",
-    date: "Dia 2",
+    date: "Dia ",
     location: "Clínica do Dr. Ritchie",
     description: "Foco total em prática clínica e networking avançado.",
     schedule: [
@@ -79,7 +79,7 @@ const days = [
   {
     number: "03",
     day: "Domingo",
-    date: "Dia 3",
+    date: "Dia ",
     location: "Clínica do Dr. Ritchie",
     description: "Encerramento, prática final e entrega de certificados.",
     schedule: [
