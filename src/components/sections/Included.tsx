@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 const services = [
   {
-    title: "Direção Criativa",
+    title: "Branding",
     items: [
       "Consolidação da identidade do evento",
       "Definição de linguagem estética",
