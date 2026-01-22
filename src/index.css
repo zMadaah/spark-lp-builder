@@ -166,3 +166,14 @@
     letter-spacing: 0.6em;
   }
 }
+
+/* Remove o badge da Lovable da visualização final */
+#lovable-badge, 
+.lovable-badge,
+iframe[src*="lovable.ai"],
+a[href*="lovable.ai"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
