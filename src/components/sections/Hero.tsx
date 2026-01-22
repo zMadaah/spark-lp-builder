@@ -1,29 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import logo from "../../assets/images/logo.png";
-import Silk from "../Silk";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
       
-      {/* 1. FUNDO DINÂMICO (SILK EFFECT) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <div style={{ width: '100%', height: '100%', minWidth: '1080px', minHeight: '1080px' }}>
-          <Silk
-            speed={5}
-            scale={1}
-            color="#7B7481"
-            noiseIntensity={1.5}
-            rotation={0}
-          />
-        </div>
-      </div>
+      {/* 1. OVERLAY DE GRADIENTE (Fundo estático para profundidade) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60 z-[1]" />
 
-      {/* 2. OVERLAY DE GRADIENTE (Para leitura perfeita do texto) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-[1]" />
-
-      {/* 3. CONTEÚDO PRINCIPAL */}
+      {/* 2. CONTEÚDO PRINCIPAL */}
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 px-6">
         
         {/* Lado Esquerdo: Marca */}
@@ -39,11 +25,9 @@ const Hero = () => {
             className="w-24 md:w-32 mb-6 object-contain brightness-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
           />
           <div className="text-center">
-            {/* Usando Garet (configurado como font-garet) */}
             <h2 className="font-garet text-white text-lg md:text-xl tracking-ultra-widest font-light uppercase">
               Riquíssimos
             </h2>
-            {/* Usando Playfair Display (configurado como font-serif) */}
             <p className="font-serif text-white/30 text-[10px] md:text-xs tracking-widest-luxury uppercase mt-2 italic">
               — Maison Experience —
             </p>
@@ -65,7 +49,6 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.3, ease: "circOut" }}
           className="text-center md:text-left"
         >
-          
           <h1 className="font-garet text-[#F5F3EF] text-4xl md:text-6xl lg:text-7xl tracking-tighter font-bold uppercase leading-[0.9]">
             Imersão <br />
             <span className="text-[#F5F3EF]">Dr. Ritchie</span>
