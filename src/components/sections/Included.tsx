@@ -39,26 +39,26 @@ const services = [
     ],
   },
   {
-   title: "Clínica do Dr. Ritchie",
-   items: [
-     "Recpção com arranjo florais",
-     "Ambiente leve e funcional",
-     "Lounges de apoio",
-     "Mesas de café decorados",
-     "Sinalização de alto padrão",
-   ],
- },
+    title: "Clínica do Dr. Ritchie",
+    items: [
+      "Recpção com arranjo florais",
+      "Ambiente leve e funcional",
+      "Lounges de apoio",
+      "Mesas de café decorados",
+      "Sinalização de alto padrão",
+    ],
+  },
   {
-   title: "Residência do Dr. Ritchie",
-   items: [
-     "Produção floral de impacto no hall da entrada",
-     "Mesa de Buffet com produção floral",
-     "Louças refinadas e taças elegantes",
-     "Iluminação estratégica",
-     "Ambiente preparado para networking e registros",
-     "Painel de LED para apresentação de materiais",
-   ],
- },
+    title: "Residência do Dr. Ritchie",
+    items: [
+      "Produção floral de impacto no hall da entrada",
+      "Mesa de Buffet com produção floral",
+      "Louças refinadas e taças elegantes",
+      "Iluminação estratégica",
+      "Ambiente preparado para networking e registros",
+      "Painel de LED para apresentação de materiais",
+    ],
+  },
   {
     title: "Kits dos Alunos",
     items: [
@@ -86,7 +86,7 @@ const Included = () => {
   return (
     <section id="incluso" className="py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        
+
         {/* Header da Seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -122,8 +122,8 @@ const Included = () => {
               {/* Lista de Itens */}
               <ul className="space-y-4 flex-grow">
                 {service.items.map((item, i) => (
-                  <li 
-                    key={i} 
+                  <li
+                    key={i}
                     /* 3. Texto dos itens em preto (#1C1C1C) com opacidade suave */
                     className="text-[#1C1C1C]/80 text-[13px] font-medium leading-relaxed flex items-start gap-3"
                   >
