@@ -127,16 +127,17 @@ const Itinerary = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-16"
         >
-          <p className="font-sans text-[10px] tracking-ultra-widest uppercase text-white/40 mb-3">
+          {/* <p className="font-sans text-[10px] tracking-ultra-widest uppercase text-white/40 mb-3">
             Schedule — Experience
-          </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-white uppercase tracking-tight">
+          </p> */}
+          <h2 className="font-sans text-4xl md:text-5xl text-white font-bold uppercase tracking-[0.25em] leading-none mb-4">
             Itinerário
           </h2>
+          <div className="w-12 h-[2px] bg-primary/60 mx-auto" />
         </motion.div>
 
         {/* Calendar Navigation */}
-        <div className="flex justify-center gap-4 md:gap-8 mb-16">
+        <div className=" font-sans flex justify-center gap-4 md:gap-8 mb-16">
           {days.map((item, index) => (
             <button
               key={index}

@@ -1,62 +1,89 @@
 import { motion } from "framer-motion";
 import logo from "../../assets/images/logo.png";
+import Silk from "../Silk";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#1a1a1a] overflow-hidden">
-      {/* Background: Substitua pelo caminho da sua imagem de tecido/seda */}
-      <div 
-        className="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
-        style={{ backgroundImage: `url('/path-to-your-silk-background.jpg')` }}
-      />
+    <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
       
-      {/* Overlay escuro para garantir o contraste */}
-      <div className="absolute inset-0 bg-black/40 z-1" />
+      {/* 1. FUNDO DINÂMICO (SILK EFFECT) */}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+  <Silk
+    speed={0.4}
+    scale={1.2}
+    color="#2a272e" // Um tom levemente mais escuro para o fundo
+  />
+</div>
+      
+      {/* 2. OVERLAY DE GRADIENTE (Para leitura perfeita do texto) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-[1]" />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 px-6">
+      {/* 3. CONTEÚDO PRINCIPAL */}
+      <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 px-6">
         
-        {/* Lado Esquerdo: Logo e Riquíssimos */}
+        {/* Lado Esquerdo: Marca */}
         <motion.div 
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.2, ease: "circOut" }}
           className="flex flex-col items-center"
         >
           <img 
             src={logo} 
             alt="Logo Riquíssimos" 
-            className="w-32 md:w-48 mb-4 object-contain"
+            className="w-24 md:w-32 mb-6 object-contain brightness-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
           />
           <div className="text-center">
-            <h2 className="text-white text-xl md:text-2xl tracking-[0.2em] font-light uppercase">
+            {/* Usando Garet (configurado como font-garet) */}
+            <h2 className="font-garet text-white text-lg md:text-xl tracking-ultra-widest font-light uppercase">
               Riquíssimos
             </h2>
-            <p className="text-white/60 text-[10px] md:text-xs tracking-[0.3em] uppercase mt-1">
-              - Maison Experience -
+            {/* Usando Playfair Display (configurado como font-serif) */}
+            <p className="font-serif text-white/30 text-[10px] md:text-xs tracking-widest-luxury uppercase mt-2 italic">
+              — Maison Experience —
             </p>
           </div>
         </motion.div>
 
-        {/* Linha Divisória Vertical (Apenas em Desktop) */}
+        {/* Divisor Vertical */}
         <motion.div 
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="hidden md:block w-[1px] h-32 bg-white/80"
+          initial={{ scaleY: 0, opacity: 0 }}
+          animate={{ scaleY: 1, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+          className="hidden md:block w-[1px] h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent"
         />
 
         {/* Lado Direito: Título da Imersão */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: "circOut" }}
+          className="text-center md:text-left"
         >
-          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl tracking-widest font-light uppercase text-center md:text-left">
-            Imersão Dr. Ritchie
+          
+          <h1 className="font-garet text-white text-4xl md:text-6xl lg:text-7xl tracking-tighter font-bold uppercase leading-[0.9]">
+            Imersão <br />
+            <span className="text-white/80">Dr. Ritchie</span>
           </h1>
+          
+          <div className="mt-8 flex justify-center md:justify-start">
+            <div className="w-16 h-px bg-primary/40" />
+          </div>
         </motion.div>
 
       </div>
+
+      {/* Indicador de Scroll Inferior */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
+      >
+        <span className="font-sans text-[8px] tracking-[0.4em] text-white/20 uppercase">Scroll</span>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent" />
+      </motion.div>
+      
     </section>
   );
 };

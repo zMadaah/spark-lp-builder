@@ -18,20 +18,21 @@ export default {
       },
     },
     extend: {
-      // PADRONIZAÇÃO DE ESPAÇAMENTO (ESTILO EDITORIAL/PDF)
       letterSpacing: {
         'tightest': '-0.05em',
         'wider': '0.1em',
-        'widest-luxury': '0.3em',    // Para subtítulos e menus
-        'ultra-widest': '0.5em',    // Para a marca principal (RIQUÍSSIMOS)
+        'widest-luxury': '0.3em',
+        'ultra-widest': '0.5em',
       },
       
-      // PADRONIZAÇÃO DE FONTES
+      // AJUSTE DE FONTES SOLICITADO
       fontFamily: {
-        // Serifada para Títulos e Elegância (Playfair como primária)
-        serif: ["Playfair Display", "Cormorant Garamond", "serif"],
-        // Sans para leitura técnica e labels (Montserrat traz mais luxo que Inter)
-        sans: ["Montserrat", "Inter", "system-ui", "sans-serif"],
+        // Isso permite usar className="font-sans"
+        sans: ["Garet", "Montserrat", "sans-serif"],
+        // Isso permite usar className="font-garet"
+        garet: ["Garet", "sans-serif"],
+        // Isso permite usar className="font-serif"
+        serif: ["Playfair Display", "serif"],
       },
 
       colors: {

@@ -3,42 +3,6 @@ import { useRef } from "react";
 
 const services = [
   {
-    title: "Kits dos Alunos",
-    items: [
-      "Caixa personalizada para vestimenta técnica",
-      "Acabamento interno e externo premium",
-      "Kits do auditório com apresentação refinada",
-      "Canudos personalizados para diplomas",
-    ],
-  },
-  {
-    title: "Auditório - Alphaville",
-    items: [
-      "Hall com produção floral elegante",
-      "Iluminação cenográfica",
-      "Espaço instagramável",
-      "Lounge com mobiliário selecionado",
-    ],
-  },
-  {
-    title: "Registros Visuais",
-    items: [
-      "Cobertura fotográfica profissional",
-      "Filmagem em vídeo",
-      "Captação com drone",
-      "Registros de aulas, práticas e experiências",
-    ],
-  },
-  {
-    title: "Construção Digital",
-    items: [
-      "Desenvolvimento de site e landing page",
-      "Organização do itinerário e conteúdos",
-      "Narrativa publicitária do evento",
-      "Material estratégico para divulgação",
-    ],
-  },
-  {
     title: "Direção Criativa",
     items: [
       "Consolidação da identidade do evento",
@@ -56,25 +20,61 @@ const services = [
       "Convite digital",
     ],
   },
-   {
-    title: "Clínica do Dr. Ritchie",
+  {
+    title: "Construção Digital",
     items: [
-      "Recpção com arranjo florais",
-      "Ambiente leve e funcional",
-      "Lounges de apoio",
-      "Mesas de café decorados",
-      "Sinalização de alto padrão",
+      "Desenvolvimento de site e landing page",
+      "Organização do itinerário e conteúdos",
+      "Narrativa publicitária do evento",
+      "Material estratégico para divulgação",
     ],
   },
-   {
-    title: "Residência do Dr. Ritchie",
+  {
+    title: "Auditório - Alphaville",
     items: [
-      "Produção floral de impacto no hall da entrada",
-      "Mesa de Buffet com produção floral",
-      "Louças refinadas e taças elegantes",
-      "Iluminação estratégica",
-      "Ambiente preparado para networking e registros",
-      "Painel de LED para apresentação de materiais",
+      "Hall com produção floral elegante",
+      "Iluminação cenográfica",
+      "Espaço instagramável",
+      "Lounge com mobiliário selecionado",
+    ],
+  },
+  {
+   title: "Clínica do Dr. Ritchie",
+   items: [
+     "Recpção com arranjo florais",
+     "Ambiente leve e funcional",
+     "Lounges de apoio",
+     "Mesas de café decorados",
+     "Sinalização de alto padrão",
+   ],
+ },
+  {
+   title: "Residência do Dr. Ritchie",
+   items: [
+     "Produção floral de impacto no hall da entrada",
+     "Mesa de Buffet com produção floral",
+     "Louças refinadas e taças elegantes",
+     "Iluminação estratégica",
+     "Ambiente preparado para networking e registros",
+     "Painel de LED para apresentação de materiais",
+   ],
+ },
+  {
+    title: "Kits dos Alunos",
+    items: [
+      "Caixa personalizada para vestimenta técnica",
+      "Acabamento interno e externo premium",
+      "Kits do auditório com apresentação refinada",
+      "Canudos personalizados para diplomas",
+    ],
+  },
+  {
+    title: "Registros Visuais",
+    items: [
+      "Cobertura fotográfica profissional",
+      "Filmagem em vídeo",
+      "Captação com drone",
+      "Registros de aulas, práticas e experiências",
     ],
   },
 ];
