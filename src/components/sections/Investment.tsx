@@ -8,31 +8,21 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import coquetel from "@/assets/images/investiment/coquetel.png";
-import estrutura from "@/assets/images/investiment/estrutura.png";
+import uniforme from "@/assets/images/investiment/uniforme.png";
+import certificado from "@/assets/images/investiment/certificado.png";
 import kit from "@/assets/images/investiment/kit.png";
-import limosine from "@/assets/images/investiment/limosine.jpeg";
-import coffe from "../../../public/gastronomia/coffe.png";
+import limosine from "@/assets/images/investiment/limosine.png";
+import coffe from "@/assets/images/investiment/coffe.png";
 
 
 const carouselItems = [
-  { title: "Coquetel de Boas-Vindas", image: coquetel },
-  { title: "Estrutura Completa", image: estrutura },
-  { title: "Kits Personalizados", image: kit },
-  { title: "Locomoção", image: limosine },
-  { title: "Café Premium", image: coffe },
+  { title: "Traje Oficial da Imersão", image: uniforme },
+  { title: "Certificados", image: certificado },
+  { title: "Planner Personalizados", image: kit },
+  { title: "Translado Cerimonial de Chegada", image: limosine },
+  { title: "Coffe Break", image: coffe },
 ];
 
-const includedItems = [
-  "Direção Criativa",
-  "Produção & Decoração",
-  "Gastronomia Completa",
-  "Kits Personalizados",
-  "Equipe Operacional",
-  "Logística Integral",
-  "Estrutura Técnica",
-  "Construção Digital",
-];
 
 const Investment = () => {
   const ref = useRef(null);
@@ -120,6 +110,46 @@ const Investment = () => {
         {/* Swiper (Opcional: Reativado com estilo refinado) */}
         {/* Descomente se desejar manter o carrossel de fotos dos itens entregues */}
       </div>
+      {/* Swiper - Carrossel de Itens Entregues */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8, delay: 0.8 }}
+  className="mt-20"
+>
+  <Swiper
+    modules={[Pagination, Autoplay]}
+    spaceBetween={20}
+    slidesPerView={1}
+    pagination={{ clickable: true }}
+    autoplay={{ delay: 4000, disableOnInteraction: false }}
+    breakpoints={{
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }}
+    className="pb-12 swiper-luxury"
+  >
+    {carouselItems.map((item, index) => (
+      <SwiperSlide key={index}>
+        <div className="relative overflow-hidden rounded-sm aspect-[4/5] group">
+          {/* Overlay Gradiente */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+          
+          <img
+            src={item.image.src || item.image} // Garante compatibilidade com imports do Next.js ou Vite
+            alt={item.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          
+          <div className="absolute bottom-6 left-6 z-20">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-1">Destaque</p>
+            <h4 className="text-white font-garet text-lg uppercase tracking-wider">{item.title}</h4>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.div>
     </section>
   );
 };
