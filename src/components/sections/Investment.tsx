@@ -31,7 +31,7 @@ const Investment = () => {
   return (
     <section id="investimento" className="section-padding bg-[#0a0a0a]">
       <div className="container-narrow" ref={ref}>
-        
+
         {/* Header da Seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ const Investment = () => {
 
         {/* Pricing cards */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl">
-          
+
           {/* Valor Real de Mercado - Estética mais sóbria */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -58,7 +58,7 @@ const Investment = () => {
               Valor Real de Mercado
             </p>
             <div className="relative">
-               <p className="font-sans text-4xl md:text-5xl text-white/20 font-light tracking-tighter  decoration-primary/30">
+              <p className="font-sans text-4xl md:text-5xl text-white/20 font-light tracking-tighter  decoration-primary/30">
                 R$ 207.800
               </p>
             </div>
@@ -68,6 +68,7 @@ const Investment = () => {
           </motion.div>
 
           {/* Investimento Proposto - Destaque Principal */}
+          {/* Investimento Proposto - Destaque Principal */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -76,19 +77,26 @@ const Investment = () => {
           >
             {/* Brilho interno decorativo */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-colors duration-700" />
-            
+
             <p className="font-sans text-primary text-[10px] font-bold uppercase tracking-[0.4em] mb-6">
               Investimento Proposto
             </p>
-            <p className="font-sans text-5xl md:text-6xl text-white font-bold tracking-tighter">
+
+            {/* Valor com risco (line-through) e opacidade reduzida */}
+            <p className="font-sans text-4xl md:text-5xl text-white/40 font-light tracking-tighter line-through decoration-primary/60">
               R$ 107.800
             </p>
-            
-            <div className="mt-8 px-4 py-1 border border-primary/20 rounded-full">
-               <p className="font-sans text-[9px] text-primary uppercase tracking-widest font-medium">
+
+            <div className="mt-4 mb-4 px-4 py-1 border border-primary/20 rounded-full">
+              <p className="font-sans text-[9px] text-primary uppercase tracking-widest font-medium">
                 Condição Exclusiva Dr. Ritchie
               </p>
             </div>
+
+            {/* Novo valor em destaque abaixo da condição */}
+            <p className="font-sans text-5xl md:text-6xl text-white font-bold tracking-tighter">
+              R$ 70.000
+            </p>
           </motion.div>
         </div>
 
@@ -111,45 +119,45 @@ const Investment = () => {
         {/* Descomente se desejar manter o carrossel de fotos dos itens entregues */}
       </div>
       {/* Swiper - Carrossel de Itens Entregues */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.8, delay: 0.8 }}
-  className="mt-20"
->
-  <Swiper
-    modules={[Pagination, Autoplay]}
-    spaceBetween={20}
-    slidesPerView={1}
-    pagination={{ clickable: true }}
-    autoplay={{ delay: 4000, disableOnInteraction: false }}
-    breakpoints={{
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    }}
-    className="pb-12 swiper-luxury"
-  >
-    {carouselItems.map((item, index) => (
-      <SwiperSlide key={index}>
-        <div className="relative overflow-hidden rounded-sm aspect-[4/5] group">
-          {/* Overlay Gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-          
-          <img
-            src={item.image.src || item.image} // Garante compatibilidade com imports do Next.js ou Vite
-            alt={item.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          
-          <div className="absolute bottom-6 left-6 z-20">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-1">Destaque</p>
-            <h4 className="text-white font-garet text-lg uppercase tracking-wider">{item.title}</h4>
-          </div>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="mt-20"
+      >
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-12 swiper-luxury"
+        >
+          {carouselItems.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative overflow-hidden rounded-sm aspect-[4/5] group">
+                {/* Overlay Gradiente */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+
+                <img
+                  src={item.image.src || item.image} // Garante compatibilidade com imports do Next.js ou Vite
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute bottom-6 left-6 z-20">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-1">Destaque</p>
+                  <h4 className="text-white font-garet text-lg uppercase tracking-wider">{item.title}</h4>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </motion.div>
     </section>
   );
 };

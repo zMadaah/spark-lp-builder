@@ -33,7 +33,7 @@ const services = [
     title: "Auditório - Alphaville",
     items: [
       "Hall com produção floral elegante",
-      "Iluminação cenográfica",
+      
       "Espaço instagramável",
       "Lounge com mobiliário selecionado",
     ],
@@ -54,9 +54,8 @@ const services = [
       "Produção floral de impacto no hall da entrada",
       "Mesa de Buffet com produção floral",
       "Louças refinadas e taças elegantes",
-      "Iluminação estratégica",
       "Ambiente preparado para networking e registros",
-      "Painel de LED para apresentação de materiais",
+     "Apresentação de material"
     ],
   },
   {
@@ -65,7 +64,7 @@ const services = [
       "Caixa personalizada para vestimenta técnica",
       "Acabamento interno e externo premium",
       "Kits do auditório com apresentação refinada",
-      "Canudos personalizados para diplomas",
+      "Diplomas",
     ],
   },
   {
