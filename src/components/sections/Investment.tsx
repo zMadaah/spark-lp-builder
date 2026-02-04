@@ -84,8 +84,8 @@ const Investment = () => {
 
             {/* Valor com risco (line-through) e opacidade reduzida */}
             <p className="font-sans text-4xl md:text-5xl text-white/40 font-light tracking-tighter line-through decoration-primary/60">
-              R$ 107.800
-            </p>
+  R$ 107.800
+</p>
 
             <div className="mt-4 mb-4 px-4 py-1 border border-primary/20 rounded-full">
               <p className="font-sans text-[9px] text-primary uppercase tracking-widest font-medium">
