@@ -84,22 +84,22 @@ const days = [
     description: "Encerramento, prática final e entrega de certificados.",
     schedule: [
       {
-        time: "08h00 às 09h00",
+        time: "09h00 às 10h00",
         activity: "Café da Manhã Premium",
         details: ["Café espresso, cappuccino e especial", "Chás premium selecionados", "Leite integral e vegetal", "Sucos naturais: laranja e frutas vermelhas", "Croissants e pães artesanais", "Queijos, manteiga francesa e geleias", "Frutas frescas, iogurte e granola premium"]
       },
       {
-        time: "09h00 às 12h00",
+        time: "10h00 às 12h30",
         activity: "Aula Prática Final",
         details: ["Conclusão dos casos clínicos", "Suporte audiovisual completo"]
       },
       {
-        time: "12h00 às 14h00",
+        time: "12h30 às 14h00",
         activity: "Almoço de Encerramento",
         details: ["Frango ou peixe grelhado", "Purê de mandioquinha ou arroz integral", "Legumes no vapor", "Salada verde premium"]
       },
       {
-        time: "17h00 às 18h00",
+        time: "17h00 às 06h00",
         activity: "Encerramento da Imersão",
         details: ["Cerimônia de entrega de certificados", "Último Coffee Break gourmet", "Momento de fotos oficiais", "Encerramento oficial"]
       }
